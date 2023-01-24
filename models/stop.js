@@ -1,17 +1,12 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
-const tripSchema = new Schema({
+const stopSchema = new Schema({
     title: {
         type: String,
         // add default
     },
-    startDate: {
-        type: Date,
-        // add default
-    },
-    endDate: {
+    dateTime: {
         type: Date,
         // add default
     },
@@ -19,12 +14,16 @@ const tripSchema = new Schema({
         type: String,
         // google maps API
     },
-    description: {
+    details: {
         type: String,
         // default same as title
     },
+    trip: {
+        type: Schema.Types.ObjectId,
+        ref: 'Trip'
+    }
 }, {
     timestamps: true
 });
 
-module.exports = mongoose.model('Trip', tripSchema);
+module.exports = mongoose.model('Stop', stopSchema);

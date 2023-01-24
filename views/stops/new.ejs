@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<h2>Add a New Stop</h2>
+<form action="/trips/<%= tripId %>/stops" method="POST">
+  <label>Title:
+    <input type="text" name="title">
+  </label><br>
+  <label>Date and Time:
+    <input type="datetime-local" name="dateTime">
+  </label><br>
+  <label>Location:
+    <input type="text" name="location">
+  </label><br>
+  <label>Details:</label>
+  <textarea name="details"></textarea>
+  <button type="submit">Add Stop</button>
+</form>
+
+<%- include('../partials/footer') %>

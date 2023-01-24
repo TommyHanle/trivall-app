@@ -1,0 +1,46 @@
+<%- include('../partials/header') %>
+
+<body>
+<nav>
+  <a href="/trips/<%= trip._id %>/stops/new">Add Stop</a>
+  <a href="/trips/<%= trip._id %>/arrangements/new">Add a Travel Arragement</a>
+</nav>
+<section id="show-page">
+  <div>Title: </div>
+  <div><%= trip.title %></div>
+  <div>Start Date: </div>
+  <div><%= trip.startDate %></div>
+  <div>End Date: </div>
+  <div><%= trip.endDate %></div>
+  <div>Location: </div>
+  <div><%= trip.location %></div>
+  <div>Description: </div>
+  <div><%= trip.description %></div>
+</section>
+
+<br><br><h2>Stops</h2>
+<% if (stops.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date & Time</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% stops.forEach(function(stop) { %>
+        <tr>
+          <td><%= stop.title %></td>
+          <td><%= stop.dateTime %></td>
+          <td><%= stop.location %></td>
+          <td><a href="/trips/<%= trip._id %>/stops/<%= stop._id %>">DETAILS</a></td>
+        </tr>
+    <% }); %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Stops Yet</h5>
+<% } %>
+
+<%- include('../partials/footer') %>

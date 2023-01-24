@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
-<table id="list">
-  <thead>
+<table id="list" class="table-style">
+  <thead class="thead-style">
     <tr>
       <th>Title</th>
       <th>Start Date</th>
@@ -11,16 +11,23 @@
     </tr>
   </thead>
   <tbody>
-    <% trips.forEach(function(t) { %>
-      <tr>
-        <td><%= t.title %></td>
-        <td><%= f.startDate %></td>
-        <td><%= f.endDate %></td>
-        <td><%= f.location %></td>
-        <td><a href="/trips/<%= t._id %>">DETAILS</a></td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
+    <% if (user) { %>
+      <% trips.forEach(function(t) { %>
+        <tr class="tr-style">
+          <td><%= t.title %></td>
+          <td><%= t.startDate %></td>
+          <td><%= t.endDate %></td>
+          <td><%= t.location %></td>
+          <td><a href="/trips/<%= t._id %>" class="link-style">DETAILS</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <% } else { %>
+      </tbody>
+      </table>
+      <div>Please Log In to View Your Trips</div>
+    <% } %>
+
   
 <%- include('../partials/footer') %>
