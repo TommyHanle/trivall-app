@@ -12,9 +12,11 @@ require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
+const loginRouter = require('./routes/login')
 const tripsRouter = require('./routes/trips');
 const stopsRouter = require('./routes/stops');
 const arrangementsRouter = require('./routes/arrangements');
+
 
 var app = express();
 
@@ -44,7 +46,8 @@ app.use(function (req, res, next) {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/trips', tripsRouter);
+app.use('/login', loginRouter);
+app.use('/users/:userId/trips', tripsRouter);
 app.use('/trips/:tripId/stops', stopsRouter);
 app.use('/trips/:tripId/arrangements', arrangementsRouter);
 

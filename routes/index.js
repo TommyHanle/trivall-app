@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('/trips');
+  res.redirect('/login');
 });
 
 // Google OAuth login route
@@ -15,19 +15,21 @@ router.get('/auth/google', passport.authenticate(
   }
 ));
 
-// Google OAuth callback route
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/trips',
-    failureRedirect: '/trips'
+  failureRedirect: '/login'
+  }),
+  function(req, res) {
+  res.redirect('/users/' + req.user._id + '/trips');
   }
-  ));
+);
+
   
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout(function() {
-    res.redirect('/trips');
+    res.redirect('/login');
   });
 });
   

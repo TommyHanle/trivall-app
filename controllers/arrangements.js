@@ -10,7 +10,7 @@ function newArrangement(req, res) {
 }
 
 function create(req, res) {
-  const arrangement = new Arrangement({ tyoe: req.body.type, dateTime: req.body.dateTime, location: req.body.location, deatils: req.body.details });
+  const arrangement = new Arrangement({ type: req.body.type, dateTime: req.body.dateTime, location: req.body.location, details: req.body.details });
   arrangement.trip = req.params.tripId;
   arrangement.save((err) => {
       if (err) {

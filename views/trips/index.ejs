@@ -19,7 +19,11 @@
           <td><%= t.endDate %></td>
           <td><%= t.location %></td>
           <td><a href="/trips/<%= t._id %>" class="link-style">DETAILS</a></td>
-        </tr>
+          <% if (user?._id.equals(t.user)) { %>
+            <form action="/trips/<%= t._id %>?_method=DELETE" method="POST">
+              <button type="submit">X</button>
+            </form>
+          <% } %>
         <% }); %>
       </tbody>
     </table>

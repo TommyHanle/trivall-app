@@ -43,4 +43,30 @@
   <h5>No Stops Yet</h5>
 <% } %>
 
+<br><br><h2>Arrangements</h2>
+<% if (arrangements.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Date & Time</th>
+        <th>Location</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% arrangements.forEach(function(arrangement) { %>
+        <tr>
+          <td><%= arrangement.type %></td>
+          <td><%= arrangement.dateTime %></td>
+          <td><%= arrangement.location %></td>
+          <td><%= arrangement.details %></td>
+        </tr>
+    <% }); %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Travel Arrangements Yet</h5>
+<% } %>
+
 <%- include('../partials/footer') %>

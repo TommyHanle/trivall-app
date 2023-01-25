@@ -23,6 +23,13 @@ const tripSchema = new Schema({
         type: String,
         // default same as title
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    userName: String,
+    userAvatar: String
 }, {
     timestamps: true
 });
