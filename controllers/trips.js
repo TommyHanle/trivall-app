@@ -7,27 +7,16 @@ module.exports = {
   new: newTrip,
   create,
   show,
+  edit,
+  update,
+  delete: deleteTrip
 }
 
 function index(req, res) {
-  if(req.user){
-  Trip.find({user: req.params.userId}, function(err, trips) {
-  if (err) {
-  // handle the error (e.g. render an error view, log the error, etc.)
-  } else {
-  res.render('trips/index', { title: 'All Trips', trips });
-  }
-  });
-  } else {
-  res.redirect('/login');
-  }
-  }
-
-/* function index(req, res) {
     Trip.find({}, function(err, trips) {
       res.render('trips/index', { title: 'All Trips', trips });
     });
-} */
+} 
 
 function newTrip(req, res) {
   res.render('trips/new', { title: 'Create Trip' });
@@ -56,4 +45,28 @@ function show(req, res) {
     });
   });
 })
+}
+
+function edit(req, res) {
+  Trip.findById(req.params.id, function(err, trip) {
+    res.render('trips/edit', { title: 'Edit Trip', trip });
+  });
+}
+
+function update(req, res) {
+  Trip.findByIdAndUpdate(req.params.id, req.body, function(err, trip) {
+    res.redirect(`/trips/${trip._id}`);
+  });
+}
+
+function deleteTrip(req, res) {
+  Trip.findByIdAndDelete(req.params.id, function(err, trip) {
+    Stop.deleteMany({ trip: req.params.id }, function(err) {
+      if (err) return next(err);
+    });
+    Arrangement.deleteMany({ trip: req.params.id }, function(err) {
+      if (err) return next(err);
+    });
+    res.redirect('/trips');
+  });
 }

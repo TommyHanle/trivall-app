@@ -3,7 +3,8 @@ const Stop = require('../models/stop');
 module.exports = {
   new: newStop,
   create,
-  show
+  show,
+  delete: deleteStop
 };
 
 function newStop(req, res) {
@@ -26,3 +27,11 @@ function show(req, res) {
     res.render('stops/show', { title: 'About the Stop', stop: stop });
   });
 }
+
+function deleteStop(req, res) {
+  Stop.findByIdAndDelete(req.params.id, function(err) {
+      if (err) return res.redirect(`/trips/${req.params.tripId}/stops/${req.params.id}`);
+      res.redirect(`/trips/${req.params.tripId}`);
+  });
+}
+

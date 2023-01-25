@@ -12,19 +12,20 @@
   </thead>
   <tbody>
     <% if (user) { %>
-      <% trips.forEach(function(t) { %>
-        <tr class="tr-style">
-          <td><%= t.title %></td>
-          <td><%= t.startDate %></td>
-          <td><%= t.endDate %></td>
-          <td><%= t.location %></td>
-          <td><a href="/trips/<%= t._id %>" class="link-style">DETAILS</a></td>
-          <% if (user?._id.equals(t.user)) { %>
-            <form action="/trips/<%= t._id %>?_method=DELETE" method="POST">
-              <button type="submit">X</button>
-            </form>
-          <% } %>
+      <% if (trips.length) { %>
+        <% trips.forEach(function(t) { %>
+          <tr class="tr-style">
+            <td><%= t.title %></td>
+            <td><%= t.startDate %></td>
+            <td><%= t.endDate %></td>
+            <td><%= t.location %></td>
+            <td><a href="/trips/<%= t._id %>" class="link-style">DETAILS</a></td>
         <% }); %>
+      <% } else { %>
+        </tbody>
+        </table>
+        <div>No Trips Yet</div>
+      <% } %>
       </tbody>
     </table>
     <% } else { %>

@@ -2,7 +2,8 @@ const Arrangement = require('../models/arrangement');
 
 module.exports = {
   new: newArrangement,
-  create
+  create,
+  delete: deleteArrangement
 };
 
 function newArrangement(req, res) {
@@ -16,6 +17,13 @@ function create(req, res) {
       if (err) {
           return;
       }
+      res.redirect(`/trips/${req.params.tripId}`);
+  });
+}
+
+function deleteArrangement(req, res) {
+  Arrangement.findByIdAndDelete(req.params.id, function(err) {
+      if (err) return res.redirect(`/trips/${req.params.tripId}/arrangements/${req.params.id}`);
       res.redirect(`/trips/${req.params.tripId}`);
   });
 }

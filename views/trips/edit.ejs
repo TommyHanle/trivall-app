@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<h2>Edit Trip</h2>
+
+<form action="/trips/<%= trip._id %>?_method=PUT" method="POST">
+  <label>Title:</label>
+  <input type="text" name="title" value="<%= trip.title %>">
+  <br>
+  <label>Start Date:</label>
+  <input type="text" name="startDate" value="<%= trip.startDate %>">
+  <br>
+  <label>End Date:</label>
+  <input type="text" name="endDate" value="<%= trip.endDate %>">
+  <br>
+  <label>Location:</label>
+  <input type="text" name="location" value="<%= trip.location %>">
+  <br>
+  <label>Description:</label>
+  <textarea name="description"><%= trip.description %></textarea>
+  <br>
+  <input type="submit" value="Update">
+</form>
+
+<%- include('../partials/footer') %>
