@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <body>
-<nav>
+<nav id="show-nav">
   <a href="/trips/<%= trip._id %>/stops/new">Add Stop</a>
   <a href="/trips/<%= trip._id %>/arrangements/new">Add a Travel Arragement</a>
   <a href="/trips/<%= trip._id %>/edit">Edit</a>
@@ -23,7 +23,7 @@
   <div><%= trip.description %></div>
 </section>
 
-<br><br><h2>Stops</h2>
+<br><br><h2>STOPS</h2>
 <% if (stops.length) { %>
   <table>
     <thead>
@@ -31,6 +31,7 @@
         <th>Title</th>
         <th>Date & Time</th>
         <th>Location</th>
+        <th>Details</th>
       </tr>
     </thead>
     <tbody>
@@ -39,7 +40,7 @@
           <td><%= stop.title %></td>
           <td><%= stop.dateTime %></td>
           <td><%= stop.location %></td>
-          <td><a href="/trips/<%= trip._id %>/stops/<%= stop._id %>">DETAILS</a></td>
+          <td><%= stop.details %></td>
           <td>
             <form action="/trips/<%= trip._id %>/stops/<%= stop._id %>" method="POST">
               <input type="hidden" name="_method" value="DELETE">
@@ -51,10 +52,10 @@
     </tbody>
   </table>
 <% } else { %>
-  <h5>No Stops Yet</h5>
+  <h5>NO STOPS YET</h5>
 <% } %>
 
-<br><br><h2>Arrangements</h2>
+<br><br><h2>ARRANGEMENTS</h2>
 <% if (arrangements.length) { %>
   <table>
     <thead>
@@ -83,7 +84,7 @@
     </tbody>
   </table>
 <% } else { %>
-  <h5>No Travel Arrangements Yet</h5>
+  <h5>NO TRAVEL ARRANGEMENTS</h5>
 <% } %>
 
 <%- include('../partials/footer') %>

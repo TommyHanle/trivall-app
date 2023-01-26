@@ -10,6 +10,6 @@ function index(req, res) {
   if (req.user) {
     res.redirect('/trips');
   } else {
-    res.render('login/index', { title: 'Login' });
+    res.render('login/index', { title: '' });
   }
 }

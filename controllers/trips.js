@@ -41,7 +41,7 @@ function show(req, res) {
   Trip.findById(req.params.id, function(err, trip) {
     Stop.find({trip: trip._id}, function(err, stops) {
       Arrangement.find({trip: trip._id}, function(err, arrangements) {
-        res.render('trips/show', { title: 'Trip Details', trip: trip, stops: stops, arrangements: arrangements });
+        res.render('trips/show', { title: 'TRIP DETAILS', trip: trip, stops: stops, arrangements: arrangements });
     });
   });
 })

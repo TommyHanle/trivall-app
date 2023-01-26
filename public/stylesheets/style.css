@@ -1,7 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Futura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 * {
   box-sizing: border-box;
-  font-family: Helvetica;
+  font-family: 'Montserrat', sans-serif;
+  color: #042b50;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #e2c5a6;
+  padding: 0 20px;
+}
+
+.header::before {
+  content: "trivall";
+  font-size: 25px;
+  font-family: 'Futura', sans-serif; 
+  font-weight: bold;
+  padding: 10px;
+  color: #042b50;
+  margin-right: auto;
+}
+
+.header a {
+  margin: 0 10px;
+  text-decoration: none;
   color: #424748;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header a:hover {
+  color: white;
+  background-color: #909ee0;;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #042b50;
+}
+
+.login-logo {
+  font-family: 'Futura', sans-serif;
+  font-size: 7em;
+  color: #042b50;
+  position: relative;
+  content: "trivall";
+  z-index: 1;
+}
+
+.login-slogan {
+  font-family: 'Montserrat', sans-serif;
+  color: #042b50;
+  font-size: 20px;
+}
+
+.logo-img-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+.pin,
+.plane {
+  opacity: 0.15;
+  width: 6em;
+  height: 6em;
+  display: inline-block;
+}
+
+.table-style td, .table-style th, .link-style {
+  text-transform: uppercase;
+}
+
+#chart {
+  width: 80%;
+  height: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #424748;
+  background-color: white;
+}
+
+.link-style {
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #e2c5a6;
+  color: #042b50;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.link-style:hover {
+  background-color: #042b50;
+}
+
+#show-nav {
+  text-transform: uppercase;
+  padding: 5px;
+  display: flex;
+}
+
+#show-nav a {
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+#show-page {
+  text-transform: uppercase;
+  background-color: #e2c5a6;
+  padding: 20px;
+  border: 10px solid #042b50;
+}
+
+
+.delete-form {
+  margin-left: 20px;
 }
 
 body {
@@ -16,18 +135,13 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: #a3b1c7;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px 0 30px;
 }
 
-nav > img {
-  width: 34px;
-  object-fit: contain;
-  margin-right: auto;
-}
 
 body > main {
   grid-area: main;
@@ -120,18 +234,20 @@ table td {
   font-weight: bold;
 }
 
-#add-review-form,
-#add-performer-form {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-  margin-bottom: 2rem;
+table {
+  text-transform: uppercase;
 }
 
-#add-review-form input[type="submit"],
-#add-performer-form input[type="submit"]  {
-  width: 10rem;
-  grid-column: 2 / 3;
+form {
+  text-transform: uppercase;
+}
+
+button {
+  text-transform: uppercase;
+}
+
+td {
+  text-transform: uppercase;
 }
 
 hr {
@@ -176,15 +292,4 @@ li {
 
 .login img {
   height: 30px;
-}
-
-.review-user {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.review-user img {
-  border-radius: 50%;
-  height: 40px;
 }
