@@ -23,8 +23,16 @@ router.use((req, res, next) => {
 
 
 router.get('/', (req, res, next) => {
-    res.render('trips/index', { trips: res.locals.trips, title: 'TRIPS' });
-});  
+    Trip.find({ user: req.user._id }).sort({ startDate: 1 })
+        .then(trips => {
+            res.render('trips/index', { trips: trips, title: 'TRIPS' });
+        })
+        .catch(err => {
+            console.log(err);
+            next(err);
+        });
+}); 
+
 
 router.get('/new', ensureLoggedIn, tripsCtrl.new);
 router.get('/:id', tripsCtrl.show);

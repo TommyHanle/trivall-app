@@ -39,13 +39,14 @@ function create(req, res) {
 
 function show(req, res) {
   Trip.findById(req.params.id, function(err, trip) {
-    Stop.find({trip: trip._id}, function(err, stops) {
-      Arrangement.find({trip: trip._id}, function(err, arrangements) {
+    Stop.find({trip: trip._id}).sort({dateTime: 1}).exec(function(err, stops) {
+      Arrangement.find({trip: trip._id}).sort({dateTime: 1}).exec(function(err, arrangements) {
         res.render('trips/show', { title: 'TRIP DETAILS', trip: trip, stops: stops, arrangements: arrangements });
+      });
     });
   });
-})
 }
+
 
 function edit(req, res) {
   Trip.findById(req.params.id, function(err, trip) {
