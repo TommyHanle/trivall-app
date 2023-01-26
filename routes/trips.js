@@ -4,6 +4,7 @@ const tripsCtrl = require('../controllers/trips');
 const Trip = require('../models/trip');
 const ensureLoggedIn = require('../config/ensureLoggedIn')
 
+
 router.use((req, res, next) => {
     if(req.originalUrl === '/trips/new') return next();
     if (req.user) {

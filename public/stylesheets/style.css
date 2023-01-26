@@ -246,12 +246,27 @@ button {
   text-transform: uppercase;
 }
 
+#show-nav a, #show-nav form {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#delete-form {
+  display: inline-block;
+  margin: auto;
+  float: left;
+}
+
 td {
   text-transform: uppercase;
 }
 
 hr {
   color: #424748
+}
+
+nav {
+  font-weight: bold;
 }
 
 #badge-container {

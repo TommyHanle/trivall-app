@@ -47,7 +47,6 @@ function show(req, res) {
   });
 }
 
-
 function edit(req, res) {
   Trip.findById(req.params.id, function(err, trip) {
     res.render('trips/edit', { title: 'Edit Trip', trip });
