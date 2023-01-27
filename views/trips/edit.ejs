@@ -2,22 +2,32 @@
 
 <h2>Edit Trip</h2>
 
-<form action="/trips/<%= trip._id %>?_method=PUT" method="POST">
-  <label>Title:</label>
+<form action="/trips/<%= trip._id %>?_method=PUT" method="POST" id="trip-forms">
+  <div class="form-group">
+  <label>Title:
   <input type="text" name="title" value="<%= trip.title %>">
-  <br>
-  <label>Start Date:</label>
+  </label><br>
+  </div>
+  <div class="form-group">
+  <label>Start Date:
   <input type="text" name="startDate" value="<%= trip.startDate %>">
-  <br>
-  <label>End Date:</label>
+  </label><br>
+  </div>
+  <div class="form-group">
+  <label>End Date:
   <input type="text" name="endDate" value="<%= trip.endDate %>">
-  <br>
-  <label>Location:</label>
+  </label><br>
+  </div>
+  <div class="form-group">
+  <label>Location:
   <input type="text" name="location" value="<%= trip.location %>">
-  <br>
-  <label>Description:</label>
+  </label><br>
+  </div>
+  <div class="form-group">
+  <label>Description:
   <textarea name="description"><%= trip.description %></textarea>
-  <br>
+  </label><br>
+  </div>
   <input type="submit" value="Update">
 </form>
 

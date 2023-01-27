@@ -269,6 +269,18 @@ nav {
   font-weight: bold;
 }
 
+.form-group {
+  display: flex;
+  align-items: center;
+}
+
+.trip-forms {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: .5em;
+}
+
 #badge-container {
   display: flex;
   flex-wrap: wrap;
